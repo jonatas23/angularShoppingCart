@@ -1,0 +1,20 @@
+.item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc; /* Adiciona uma borda inferior */
+}
+
+.item-info {
+  flex-grow: 1;
+}
+
+.item-actions {
+  margin-left: 10px;
+}
+.button-container {
+  p-button{
+    margin-right: 1vh;
+  }
+}

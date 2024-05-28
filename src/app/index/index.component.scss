@@ -1,0 +1,16 @@
+h2 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+
+  p-button {
+    margin: 1vh;
+  }
+}

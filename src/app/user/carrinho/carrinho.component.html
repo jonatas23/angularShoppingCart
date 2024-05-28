@@ -1,0 +1,23 @@
+<p-card header="Carrinho de Compras">
+  <p-toast/>
+  <div *ngIf="cart">
+    <div *ngFor="let item of cart.items" class="item-container">
+      <div class="item-info">
+        <p class="p-mr-2">{{item.product.name}} ({{item.quantity}})</p>
+      </div>
+      <div class="item-actions">
+        <p-button type="button" icon="pi pi-times" severity="danger" [rounded]="true" (click)="removeItem(item.id)"></p-button>
+      </div>
+    </div>
+    <div class="p-d-flex p-jc-between">
+      <p>Total: {{cart.totalPrice | currency}}</p>
+      <div class="button-container">
+        <p-button type="button" label="Finalizar Compra" (click)="finalizeCart()" severity="success"/>
+        <p-button (click)="retornar()" label="Retornar" severity="info"/>
+      </div>
+    </div>
+  </div>
+
+  <p-progressBar *ngIf="loading" mode="indeterminate"></p-progressBar>
+  <div *ngIf="error">Erro ao carregar carrinho: {{ error }}</div>
+</p-card>

@@ -1,0 +1,34 @@
+<p-card header="Produtos">
+  <p-toast/>
+  <p-table class="p-table" [value]="products" *ngIf="!loading">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Quantidade</th>
+        <th>Valor</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.codigo }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.descricao }}</td>
+        <td>{{ product.quantidade }}</td>
+        <td>{{ product.valor | currency:'BRL' }}</td>
+        <td>
+          <p-button (click)="deleteProduct(product.id)" pTooltip="Deletar" icon="pi pi-times" [rounded]="true"
+                    severity="danger"/>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-button type="button" (click)="createNewProduct()" class="btn btn-primary">Criar Novo Produto</p-button>
+  <p-button label="Inicio" icon="pi pi-shopping-cart" (click)="index()"></p-button>
+
+  <p-progressBar *ngIf="loading" mode="indeterminate"></p-progressBar>
+  <div *ngIf="error">Erro ao carregar produtos: {{ error }}</div>
+</p-card>

@@ -1,0 +1,33 @@
+<div class="create">
+  <p-card header="Novo Produto">
+    <div class="p-fluid">
+      <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+        <p-toast/>
+        <div class="p-field">
+          <label for="name">Nome do Produto</label>
+          <input id="name" type="text" pInputText formControlName="name"/>
+        </div>
+        <div class="p-field">
+          <label for="codigo">Código</label>
+          <input id="codigo" type="text" pInputText formControlName="codigo"/>
+        </div>
+        <div class="p-field">
+          <label for="descricao">Descrição</label>
+          <input id="descricao" type="text" pInputText formControlName="descricao"/>
+        </div>
+        <div class="p-field">
+          <label for="quantidade">Quantidade</label>
+          <p-inputNumber id="quantidade" formControlName="quantidade"></p-inputNumber>
+        </div>
+        <div class="p-field">
+          <label for="valor">Valor</label>
+          <p-inputNumber id="valor" formControlName="valor"></p-inputNumber>
+        </div>
+        <div class="p-field button-container">
+          <p-button type="submit" label="Salvar" severity="success"/>
+          <p-button (click)="retornar()" label="Retornar" severity="info"/>
+        </div>
+      </form>
+    </div>
+  </p-card>
+</div>
